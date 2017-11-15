@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "Fake REST for Devs by a Dev";
+}
+
+<div class="jumbotron">
+    <h1>FakeREST</h1>
+    <p class="lead">This small project provides dummy REST APIs to test with your development. </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Open Source</h2>
+        <p>
+            You can check the souce code in GitHub.
+        </p>
+        <p><a class="btn btn-primary" href="https://github.com/sandeepparekh9/FakeRest">Source Code &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Regularly Maintained</h2>
+        <p>New functionaly and datasets are added regulary.</p>
+        <p><a class="btn btn-primary" href="#">DataSets &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Host it Yourself</h2>
+        <p>The code is readily available in Github and you can host it yourself on cloud or use locally</p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div id="datasets"><h3 class="panel-title">Available Datasets</h3></div>
+            </div>
+            <div class="panel-body">
+                <ol>
+                    <li><a href="/api/user">Users</a></li>
+                    <li><a href="/api/jeopardyQ">Jeopardy Questions</a></li>
+                    <li><a href="/api/nasafacility">Nasa Facilities (<a href="https://data.nasa.gov/browse">Nasa Data Catalog</a>)</a></li>
+                    <li><a href="/api/nasapatent">Nasa Patents (<a href="https://data.nasa.gov/browse">Nasa Data Catalog</a>)</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div id="userDateSet">
+                    <h3 class="panel-title">User</h3>
+                </div>
+            </div>
+            <div class="panel-body">
+                
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/User">/api/User</a></td>
+                        <td>Gets all Users</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/User/1">/api/User/1</a></td>
+                        <td>Gets User with Id=1</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/User?q=Malory">/api/User?q=Malory</a></td>
+                        <td>Full text search for query param "q"</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/User?page=2&limit=30">/api/User?page=2&limit=30</a></td>
+                        <td>Gets page 2 of size 30</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/User?sortField=FirstName&order=DESC">/api/User?sortField=FirstName&order=DESC</a></td>
+                        <td>"DESC"/"ASC" Order by supplied "sortField"</td>
+                    </tr>
+                            
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/User?q=Female&page=2&limit=30&sortField=FirstName&order=DESC">/api/User?q=Female&page=2&limit=30&sortField=FirstName&order=DESC</a></td>
+                        <td>Search for all record containing Female text and gets Page 2 of size 30 from return resulted ordered by FirstName in Descending order</td>
+                    </tr>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/User</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/User</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/User/1</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            
+            <div class="panel-footer">This approach can be used for available datasets</div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div id="jeopardyQ">
+                    <h3 class="panel-title">Jeopardy Questions</h3>
+                </div>
+            </div>
+            <div class="panel-body">
+                
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/JeopardyQ">/api/JeopardyQ</a></td>
+                        <td>Gets all JeopardyQs</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/JeopardyQ/1">/api/JeopardyQ/1</a></td>
+                        <td>Gets JeopardyQ with Id=1</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/JeopardyQ?q=Infrared rays">/api/JeopardyQ?q=Infrared rays</a></td>
+                        <td>Full text search for query param "q"</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/JeopardyQ?page=2&limit=30">/api/JeopardyQ?page=2&limit=30</a></td>
+                        <td>Gets page 2 of size 30</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/JeopardyQ?sortField=Category&order=DESC">/api/JeopardyQ?sortField=Category&order=DESC</a></td>
+                        <td>"DESC"/"ASC" Order by supplied "sortField"</td>
+                    </tr>
+                            
+                    <tr>
+                        <td>GET</td>
+                        <td><a href="/api/JeopardyQ?q=baseball&page=1&limit=30&sortField=Category&order=DESC">/api/JeopardyQ?q=baseball&page=1&limit=30&sortField=Category&order=DESC</a></td>
+                        <td>Search for all record containing baseball text and gets Page 2 of size 30 from return resulted ordered by Category in Descending order</td>
+                    </tr>
+
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/JeopardyQ</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/JeopardyQ</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/JeopardyQ/1</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>*@
